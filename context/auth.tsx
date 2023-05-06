@@ -15,10 +15,6 @@ export function useAuth() {
 // This hook will protect the route access based on user authentication.
 function useProtectedRoute(user: boolean) {
   const segments = useSegments();
-  console.log(
-    "🚀 ~ file: auth.tsx:18 ~ useProtectedRoute ~ segments:",
-    segments
-  );
   const router = useRouter();
 
   React.useEffect(() => {

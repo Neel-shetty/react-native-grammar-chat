@@ -28,8 +28,9 @@ const theme = {
   ...PaperDefaultTheme,
   colors: {
     ...PaperDefaultTheme.colors,
-    primary: "tomato",
+    primary: "#18223a",
     secondary: "yellow",
+    background: "#181a20",
   },
 };
 
@@ -59,16 +60,18 @@ function RootLayoutNav() {
   return (
     <>
       <Provider>
+        {/* <SafeAreaProvider> */}
         <ThemeProvider
           value={colorScheme === "dark" ? DarkTheme : DefaultTheme}
         >
-          <PaperProvider>
-            <Stack>
+          <PaperProvider theme={theme}>
+            <Stack screenOptions={{ headerShown: false }}>
               <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
               <Stack.Screen name="modal" options={{ presentation: "modal" }} />
             </Stack>
           </PaperProvider>
         </ThemeProvider>
+        {/* </SafeAreaProvider> */}
       </Provider>
     </>
   );
